@@ -1,0 +1,144 @@
+#### What is a Higher-Order Function?
+- A higher-order function is a function that can take other functions as arguments, return a function as a result, or both.
+- They are a key feature of functional programming in JavaScript, making code more modular, concise, and expressive.
+
+#### Key Higher-Order Functions in JavaScript
+
+1. **forEach**
+   - **Purpose**: Executes a provided function once for each array element.
+   - **Syntax**:
+     ```javascript
+     array.forEach(function(element, index, array) {
+       // Code to execute on each element
+     });
+     ```
+   - **Example**:
+     ```javascript
+     const students = ["Amanuel", "Marta", "Kaleab"];
+     students.forEach(function(student) {
+       console.log(student);
+     });
+     ```
+
+2. **filter**
+   - **Purpose**: Creates a new array with all elements that pass the test implemented by the provided function.
+   - **Syntax**:
+     ```javascript
+     let newArray = array.filter(function(element, index, array) {
+       return condition; // Condition to test each element
+     });
+     ```
+   - **Example**:
+     ```javascript
+     const students = [
+       { name: "Amanuel", cgpa: 3.4 },
+       { name: "Marta", cgpa: 3.6 },
+       { name: "Kaleab", cgpa: 3.2 }
+     ];
+     let highCgpaStudents = students.filter(function(student) {
+       return student.cgpa > 3.5;
+     });
+     console.log(highCgpaStudents);
+     ```
+
+3. **map**
+   - **Purpose**: Creates a new array populated with the results of calling a provided function on every element in the calling array.
+   - **Syntax**:
+     ```javascript
+     let newArray = array.map(function(element, index, array) {
+       return newElement; // Element to return for each original element
+     });
+     ```
+   - **Example**:
+     ```javascript
+     const students = [
+       { name: "Amanuel", age: 20 },
+       { name: "Marta", age: 21 },
+       { name: "Kaleab", age: 22 }
+     ];
+     let studentNames = students.map(function(student) {
+       return student.name;
+     });
+     console.log(studentNames);
+     ```
+
+4. **reduce**
+   - **Purpose**: Executes a reducer function on each element of the array, resulting in a single output value.
+   - **Syntax**:
+     ```javascript
+     let result = array.reduce(function(accumulator, element, index, array) {
+       return newAccumulator; // New accumulator value after processing the element
+     }, initialValue);
+     ```
+   - **Example**:
+     ```javascript
+     const students = [
+       { name: "Amanuel", cgpa: 3.4 },
+       { name: "Marta", cgpa: 3.6 },
+       { name: "Kaleab", cgpa: 3.2 }
+     ];
+     let totalCgpa = students.reduce(function(accumulator, student) {
+       return accumulator + student.cgpa;
+     }, 0);
+     console.log(totalCgpa);
+     ```
+
+#### Comparison and Advantages
+
+1. **forEach** vs. **Traditional Loop**:
+   - **forEach** is more concise and readable.
+   - It directly expresses the intention to perform an action on each array element.
+
+2. **filter** vs. **Traditional Loop with Condition**:
+   - **filter** returns a new array with elements that satisfy the condition.
+   - It's more intuitive and less error-prone than managing array creation and population manually.
+
+3. **map** vs. **Traditional Loop for Transformation**:
+   - **map** creates a new array by applying a function to each element.
+   - It simplifies the transformation process, making the code cleaner and more readable.
+
+4. **reduce** vs. **Traditional Loop for Aggregation**:
+   - **reduce** accumulates values based on a function.
+   - It is more expressive for operations like summing, finding the maximum, or combining elements into a single output.
+
+#### Practical Example: Combining All Four HOFs
+
+Given an array of student objects, perform the following tasks:
+1. Log each student's name.
+2. Filter out students who have a CGPA greater than 3.5.
+3. Create a new array with the names of students from the filtered list.
+4. Calculate the average age of the filtered students.
+
+```javascript
+const students = [
+  { name: "Amanuel", age: 20, cgpa: 3.4 },
+  { name: "Marta", age: 21, cgpa: 3.6 },
+  { name: "Kaleab", age: 22, cgpa: 3.2 },
+  { name: "Lidia", age: 23, cgpa: 3.8 },
+  { name: "Bereket", age: 24, cgpa: 3.5 }
+];
+
+// 1. Log each student's name
+students.forEach(function(student) {
+  console.log(student.name);
+});
+
+// 2. Filter out students who have a CGPA greater than 3.5
+let highCgpaStudents = students.filter(function(student) {
+  return student.cgpa > 3.5;
+});
+console.log(highCgpaStudents);
+
+// 3. Create a new array with the names of students from the filtered list
+let highCgpaStudentNames = highCgpaStudents.map(function(student) {
+  return student.name;
+});
+console.log(highCgpaStudentNames);
+
+// 4. Calculate the average age of the filtered students
+let totalAge = highCgpaStudents.reduce(function(accumulator, student) {
+  return accumulator + student.age;
+}, 0);
+
+let averageAge = totalAge / highCgpaStudents.length;
+console.log(averageAge);

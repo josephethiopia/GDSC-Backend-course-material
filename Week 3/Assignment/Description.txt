@@ -1,0 +1,27 @@
+Assignment: Simple To-Do App
+
+Objective:
+Build a simple To-Do application using JavaScript, HTML, and CSS. This assignment will help you understand and apply concepts such as higher-order functions, DOM manipulation, and inheritance in JavaScript.
+
+Requirements:
+User Interface:
+
+-An input field to enter a new to-do item.
+-A button to add the new to-do item.
+-A list to display all to-do items.
+-Each to-do item should have a checkbox to mark it as completed and a button to remove it.
+-Style the application with CSS to make it visually appealing. (optional )
+
+
+Functionality:
+
+-Add new to-do items to the list.
+-Mark to-do items as completed.
+-Remove to-do items from the list.
+-Use higher-order functions to handle the addition, completion, and removal of to-do items.
+-Use inheritance to extend functionalities if needed.
+
+
+Detailed Steps:
+1. Setup your project
+Create three files: index.html, styles.css, and app.js.

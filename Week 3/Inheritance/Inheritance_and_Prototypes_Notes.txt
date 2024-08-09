@@ -1,0 +1,135 @@
+
+Inheritance and Prototypes in JavaScript
+
+1. Introduction to Inheritance
+- Inheritance allows a class to inherit properties and methods from another class.
+- This helps to reuse code and make it more organized.
+
+2. Example Problem Without Inheritance
+```javascript
+// Class for Animal
+class Animal {
+    constructor(name, sound) {
+        this.name = name;
+        this.sound = sound;
+    }
+
+    makeSound() {
+        return `${this.name} says ${this.sound}`;
+    }
+}
+
+// Class for Dog
+class Dog {
+    constructor(name, sound, breed) {
+        this.name = name;
+        this.sound = sound;
+        this.breed = breed;
+    }
+
+    makeSound() {
+        return `${this.name} says ${this.sound}`;
+    }
+
+    getBreed() {
+        return `${this.name} is a ${this.breed}`;
+    }
+}
+
+// Creating instances
+let animal1 = new Animal("Generic Animal", "some sound");
+let dog1 = new Dog("Rex", "bark", "Labrador");
+
+console.log(animal1.makeSound()); // Generic Animal says some sound
+console.log(dog1.makeSound()); // Rex says bark
+console.log(dog1.getBreed()); // Rex is a Labrador
+```
+
+3. Solution Using Inheritance with Classes
+```javascript
+// Parent class
+class Animal {
+    constructor(name, sound) {
+        this.name = name;
+        this.sound = sound;
+    }
+
+    makeSound() {
+        return `${this.name} says ${this.sound}`;
+    }
+}
+
+// Child class
+class Dog extends Animal {
+    constructor(name, sound, breed) {
+        super(name, sound); // Call the parent class constructor
+        this.breed = breed;
+    }
+
+    getBreed() {
+        return `${this.name} is a ${this.breed}`;
+    }
+}
+
+// Creating instances
+let animal1 = new Animal("Generic Animal", "some sound");
+let dog1 = new Dog("Rex", "bark", "Labrador");
+
+console.log(animal1.makeSound()); // Generic Animal says some sound
+console.log(dog1.makeSound()); // Rex says bark
+console.log(dog1.getBreed()); // Rex is a Labrador
+```
+
+4. Explanation of Classes and Inheritance
+- **Classes**: A blueprint for creating objects. Defines properties and methods that the created objects will have.
+- **Inheritance**: A mechanism where one class (child class) inherits the properties and methods of another class (parent class).
+- **super**: A keyword used to call the constructor of the parent class.
+
+5. What is a Prototype?
+- In JavaScript, every object has a prototype.
+- A prototype is an object from which other objects inherit properties and methods.
+- When you create a class, JavaScript automatically sets up prototypes to handle inheritance.
+
+6. Prototype Chain
+- The prototype chain is the chain of prototypes JavaScript follows when looking for a property or method.
+- When you call a method on an object, JavaScript first looks for it directly on the object. If it doesn't find it, it looks for it on the object's prototype.
+
+7. Example Using Prototypes with Classes
+```javascript
+class Animal {
+    constructor(name, sound) {
+        this.name = name;
+        this.sound = sound;
+    }
+
+    makeSound() {
+        return `${this.name} says ${this.sound}`;
+    }
+}
+
+class Dog extends Animal {
+    constructor(name, sound, breed) {
+        super(name, sound); // Call the parent class constructor
+        this.breed = breed;
+    }
+
+    getBreed() {
+        return `${this.name} is a ${this.breed}`;
+    }
+}
+
+let animal1 = new Animal("Generic Animal", "some sound");
+let dog1 = new Dog("Rex", "bark", "Labrador");
+
+console.log(animal1.makeSound()); // Generic Animal says some sound
+console.log(dog1.makeSound()); // Rex says bark
+console.log(dog1.getBreed()); // Rex is a Labrador
+```
+
+8. Key Points
+- **Prototype**: An object from which other objects inherit properties and methods.
+- **Prototype Chain**: The chain of prototypes JavaScript follows when looking for a property or method.
+- **Classes**: JavaScript classes set up prototypes automatically, making inheritance straightforward.
+- **Inheritance**: Using classes and inheritance simplifies code reuse and organization.
+
+By using classes and inheritance, we can avoid code duplication and create more maintainable and efficient code.
