@@ -1,0 +1,40 @@
+Core Middleware
+    express.json() // done
+
+    express.urlencoded({ extended: true }) // done
+
+    express.static(path) // done
+
+    express.raw() // done
+
+    express.text() // done
+
+    express.Rounter()
+
+Third Party Middleware
+    morgan // done
+    
+    body-parser // slightly
+    
+    cookie-parser
+    
+    cors // done
+    
+    express-session
+    
+    helmet // slightly
+    
+    compression
+    
+    passport
+    
+    multer // done
+    
+    express-rate-limit
+
+>>> How to install: npm install morgan body-parser cookie-parser cors express-session helmet compression passport multer express-rate-limit 
+
+Other Important Middleware // checkout the rest
+    express.methodOverride()
+
+    express.cookieParser()

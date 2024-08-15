@@ -1,0 +1,90 @@
+### Post request to built_in_middleware
+POST http://localhost:3000/
+Content-Type: application/json
+
+{
+    "name": "Estifanos Taye"
+}
+
+
+### Post requrest to urlencoded
+POST http://localhost:3000/submit-form
+Content-Type: application/x-www-form-urlencoded
+
+name=Estif&age=22&city=Ethiopia&interests=sleep%2C%20nap%2C%20layingdown
+
+
+### Post request to raw with custom format
+POST http://localhost:3000/custom-protocal
+Content-Type: text/plain
+
+command=FETCH&data=item1,item2,item3
+
+
+### Post request to third-party middleware bodyparser regular
+POST http://localhost:3000/regular
+Content-Type: application/json
+
+{
+    "name": "Estifanos Taye"
+}
+
+
+### Post request to third-party middleware bodyparser urlencoded
+POST http://localhost:3000/encoded
+Content-Type: application/x-www-form-urlencoded
+
+data:name=Alice&age=25&city=London&interests=travel%2C%20photography%2C%20reading
+
+
+### Post request to express-session.js login
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "username": "Estifanos Taye"
+}
+
+
+### Post request to express-session.js additem
+POST http://localhost:3000/additem
+Content-Type: application/json
+
+{
+    "item": "nice 2"
+}
+
+
+### GET request to express-session.js items
+GET http://localhost:3000/items
+
+
+### GET request to express-session.js profile
+GET http://localhost:3000/profile
+
+
+### GET request to morgan.js /
+GET http://localhost:3000/
+
+
+### Post request to morgan.js data
+POST http://localhost:3000/data
+Content-Type: application/json
+
+{}
+
+
+### GET request to morgan.js /about
+GET http://localhost:3000/about
+
+
+### Post request to basic_error_handling.js
+POST http://localhost:3000/error
+Content-Type: application/json
+
+
+### Post request to raw with binary data
+POST http://localhost:3000/upload-file
+Content-Type: application/octet-stream
+
+data: 
